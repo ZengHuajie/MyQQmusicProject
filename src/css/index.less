@@ -1,0 +1,186 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  body {
+    font-size: 12px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .wrapper {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 60px;
+    box-sizing: border-box;
+    //background-color: #ccc;
+
+    // 顶部歌曲图片
+    .song-image {
+      position: relative;
+      width: 70%;
+      height: 0;
+      // 自适应正方形，height设为0，padding-top为宽度
+      padding-top: 70%;
+      margin: 0 auto;
+      //border: 1px solid #000;
+
+      .img-box {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        border-radius: 50%;
+
+        img {
+          width: 75%;
+          height: 75%;
+          border-radius: 50%;
+        }
+
+      }
+
+    }
+
+    // 中间歌曲信息
+    .song-info {
+      margin-top: 20px;
+      width: 100%;
+      height: 126px;
+      color: #fff;
+      text-align: center;
+      //border: 1px solid #000;
+
+      .song-name {
+        margin-bottom: 8px;
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+    }
+
+    //进度条
+    .pro {
+      display: flex;
+
+      .cur-time,
+      .all-time {
+        width: 60px;
+        height: 40px;
+        color: #fff;
+        text-align: center;
+        line-height: 40px;
+        //border: 1px solid #000;
+      }
+
+      .pro-wrap {
+        position: relative;
+        flex: 1;
+        //border: 1px solid #000;
+        overflow: hidden;
+
+        .pro-bottom,
+        .pro-top{
+          position: absolute;
+          top: 20px;
+          width: 100%;
+          height: 2px;
+        }
+        // 下面不会动的进度条
+        .pro-bottom {
+          background-color: #999;
+        }
+        // 上面会动的进度条
+        .pro-top {
+          transform: translateX(-98%);
+          background-color: #fff;
+          // 会动的小圆点
+          .spot {
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            //border: 1px solid #000;
+
+            &::after {
+              content: '';
+              position: absolute;
+              top: 50%;
+              transform: translateY(-50%);
+              display: block;
+              width: 5px;
+              height: 5px;
+              background-color: #fff;
+              border-radius: 50%;
+            }
+
+          }
+
+        }
+      }
+
+
+    }
+
+    //底部按钮
+    .control {
+      width: 100%;
+      height: 60px;
+      display: flex;
+      position: absolute;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, .6);
+
+      .btn {
+        flex: 1;
+        height: 100%;
+        background-repeat: no-repeat;
+        background-size: 25px;
+        background-position: center;
+        //border: 1px solid #000;
+      }
+      .like {
+        background-image: url("../image/icon-like.png");
+        // 通过改变类名，来改变按钮
+        &.liking {
+          background-image: url("../image/icon-like-solid.png");
+        }
+
+      }
+      .prev {
+        background-image: url("../image/icon-prev.png");
+      }
+      .play {
+        background-image: url("../image/icon-play.png");
+        // 通过改变类名，来改变按钮
+        &.playing {
+          background-image: url("../image/icon-pause.png");
+        }
+
+
+      }
+      .next {
+        background-image: url("../image/icon-next.png");
+      }
+      .list {
+        background-image: url("../image/icon-list.png");
+      }
+
+    }
+
+
+  }
+
+}
